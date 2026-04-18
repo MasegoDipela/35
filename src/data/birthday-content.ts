@@ -287,7 +287,7 @@ export const finaleLetter = {
     'I want to say: you make the world more legible. You take the ordinary, an afternoon, a walk, a conversation, and you turn it into something someone will remember.',
     'I want to say: watching you write is like watching someone pray. It is private, and sacred, and I am grateful every time you let me be in the room.',
     'I want to say: thirty-five looks extraordinary on you. Not because of the number, but because of the woman wearing it, someone who is brave enough to look at the world honestly and tender enough to still be moved by it.',
-    'I want to say: there is no elsewhere. OnSly here. Only us. Only this.',
+    'I want to say: there is no elsewhere. Only here. Only us. Only this.',
     /* ── ADD YOUR OWN PARAGRAPHS BELOW ── */
     // 'Your personal paragraph here...',
     // 'Another personal paragraph...',
