@@ -293,7 +293,7 @@ export const finaleLetter = {
     // 'Another personal paragraph...',
   ],
   closing: 'With everything I have, and everything I am learning to give —',
-  signature: 'Yours',
+  signature: 'Yours, Masego',
   ps: 'P.S. — I hid some things in these pages. Keep looking.',
 };
 
