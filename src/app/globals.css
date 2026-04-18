@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────
+   Written in Light · Global Styles
+   ────────────────────────────────────────── */
+
+@theme inline {
+  --color-ivory: #FAF6F1;
+  --color-ink: #1A1A1A;
+  --color-charcoal: #2D2D2D;
+  --color-gold: #C9A96E;
+  --color-sepia: #D4C5B2;
+  --color-blush: #E8D5C4;
+  --color-midnight: #1B2838;
+  --color-warm-white: #F5F0EA;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #FAF6F1;
+  --foreground: #1A1A1A;
+  scroll-behavior: smooth;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #C9A96E40;
+  color: #1A1A1A;
+}
+
+/* ── Paper texture overlay ── */
+.paper-texture::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C9A96E, #1A1A1A);
+  z-index: 100;
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ── Typewriter cursor ── */
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #C9A96E;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Floating page animation ── */
+@keyframes float-page {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(-0.5deg); }
+  75% { transform: translateY(-25px) rotate(0.5deg); }
+}
+
+.float-page {
+  animation: float-page 8s ease-in-out infinite;
+}
+
+/* ── Ink bloom mask reveal ── */
+@keyframes ink-bloom {
+  0% { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(75% at 50% 50%); }
+}
+
+.ink-bloom-reveal {
+  animation: ink-bloom 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Margin note ── */
+.margin-note {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: #C9A96E;
+  opacity: 0.7;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ── Vignette ── */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(26, 26, 26, 0.15) 100%);
+}
+
+/* ── Photo warm filter ── */
+.photo-warm {
+  filter: sepia(0.08) saturate(0.95) brightness(1.02) contrast(1.02);
+  transition: filter 0.6s ease;
+}
+
+.photo-warm:hover {
+  filter: sepia(0) saturate(1) brightness(1) contrast(1);
+}
+
+/* ── Section backgrounds ── */
+.section-dark { background-color: #1A1A1A; color: #FAF6F1; }
+.section-midnight { background-color: #1B2838; color: #FAF6F1; }
+.section-ivory { background-color: #FAF6F1; color: #1A1A1A; }
+
+/* ── Hidden source comment (easter egg) ── */
+/* Chapter ∅ — "She does not look for the light. She is the light — arriving." */
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C9A96E40; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A96E80; }
