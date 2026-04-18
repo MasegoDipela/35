@@ -18,6 +18,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Written in Light',
   description: 'A birthday letter, told in chapters.',
+  metadataBase: new URL('https://tshegofatsomogotsi.com'),
+  openGraph: {
+    title: 'Written in Light',
+    description: 'A birthday letter, told in chapters.',
+    url: 'https://tshegofatsomogotsi.com',
+    siteName: 'Written in Light',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Written in Light',
+    description: 'A birthday letter, told in chapters.',
+  },
 };
 
 export default function RootLayout({
